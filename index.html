@@ -311,23 +311,8 @@
       </div>
 
       <div class="right-section">
-        <div class="links">
-          <a href="/Portf/" class="link-button">
-            <span class="link-title">Portf</span>
-            <span class="link-subtitle">Modular portfolio template</span>
-          </a>
-          <a href="/oldClassic/" class="link-button">
-            <span class="link-title">oldClassic</span>
-            <span class="link-subtitle">Retro-style website template</span>
-          </a>
-          <a href="/CookieCut/" class="link-button">
-            <span class="link-title">CookieCut</span>
-            <span class="link-subtitle">Simple page generator &amp; printer</span>
-          </a>
-          <a href="/Flean/" class="link-button">
-            <span class="link-title">Flean</span>
-            <span class="link-subtitle">Fandom URL converter</span>
-          </a>
+        <div class="links" id="linksContainer">
+          <!-- Links are loaded from projects.json -->
         </div>
       </div>
     </div>
@@ -373,6 +358,43 @@
           saveTheme(next);
         }
 
+        function renderLinks(containerSelector, jsonPath) {
+          const container = document.querySelector(containerSelector);
+          if (!container) return;
+          fetch(jsonPath)
+            .then(function (res) {
+              if (!res.ok) throw new Error('Failed to load ' + jsonPath);
+              return res.json();
+            })
+            .then(function (links) {
+              container.innerHTML = '';
+              links.forEach(function (link) {
+                const anchor = document.createElement('a');
+                anchor.className = 'link-button';
+                anchor.href = link.url || '#';
+                if (link.target) anchor.target = link.target;
+
+                const title = document.createElement('span');
+                title.className = 'link-title';
+                title.textContent = link.title || link.url || 'Link';
+                anchor.appendChild(title);
+
+                if (link.subtitle) {
+                  const subtitle = document.createElement('span');
+                  subtitle.className = 'link-subtitle';
+                  subtitle.textContent = link.subtitle;
+                  anchor.appendChild(subtitle);
+                }
+
+                container.appendChild(anchor);
+              });
+            })
+            .catch(function (err) {
+              console.error('Error rendering links:', err);
+              container.innerHTML = '<p style="opacity:0.7;font-size:14px;">Could not load projects: ' + (err && err.message ? err.message : 'unknown error') + '</p>';
+            });
+        }
+
         function init() {
           const saved = getSavedTheme();
           const theme = saved || detectSystem();
@@ -380,6 +402,7 @@
           if (!saved) saveTheme(theme);
           const btn = document.getElementById('themeToggle');
           if (btn) btn.addEventListener('click', toggleTheme);
+          renderLinks('#linksContainer', 'projects.json');
         }
 
         if (document.readyState === 'loading') {
