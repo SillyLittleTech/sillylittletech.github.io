@@ -18,5 +18,20 @@
     "title": "Flean",
     "url": "/Flean/",
     "subtitle": "Fandom URL converter"
+  },
+  {
+    "title": "PinStick",
+    "url": "/PinStick/",
+    "subtitle": "Simple Pinnable Disappearing notepad application for quick notes"
+  },
+  {
+    "title": "ZaxPhone",
+    "url": "/ZaxPhone/",
+    "subtitle": "Modern Web Proxy and anonymizer based on ScamJet"
+  },
+  {
+    "title": "PasEct",
+    "url": "/Pasect/",
+    "subtitle": "A Desktop and PWA tool to compare your login information against leaked logins, warning you about breaches"
   }
 ]
