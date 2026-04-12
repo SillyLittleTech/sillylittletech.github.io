@@ -23,5 +23,10 @@
     "title": "PinStick",
     "url": "/PinStick/",
     "subtitle": "Simple Pinnable Disappearing notepad application for quick notes"
+  },
+  {
+    "title": "PasCurtain",
+    "url": "/PasCurtain/",
+    "subtitle": "A simple password breach checker using k-anonymity encryption"
   }
 ]
