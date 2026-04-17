@@ -28,5 +28,10 @@
     "title": "PasCurtain",
     "url": "/PasCurtain/",
     "subtitle": "A simple password breach checker using k-anonymity encryption"
+  },
+  {
+    "title": "JetVeil",
+    "url": "/JetVeil/",
+    "subtitle": "Simple reverse-proxy browser application for secure and anonymous browsing"
   }
 ]
