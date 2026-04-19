@@ -2,36 +2,43 @@
   {
     "title": "Portf",
     "url": "/Portf/",
-    "subtitle": "Modular portfolio template"
+    "subtitle": "Modular portfolio template",
+    "icon": "/assets/portfDefault-1024x1024@1x.png"
   },
   {
     "title": "oldClassic",
     "url": "/oldClassic/",
-    "subtitle": "Retro-style website template"
+    "subtitle": "Retro-style website template",
+    "icon": "/assets/oldclassicDefault-1024x1024@1x.png"
   },
   {
     "title": "CookieCut",
     "url": "/CookieCut/",
-    "subtitle": "Simple page generator & printer"
+    "subtitle": "Simple page generator & printer",
+    "icon": "/assets/cookiecutDefault-1024x1024@1x.png"
   },
   {
     "title": "Flean",
     "url": "/Flean/",
-    "subtitle": "Fandom URL converter"
+    "subtitle": "Fandom URL converter",
+    "icon": "/assets/FleanIconDefault-1024x1024@1x.png"
   },
   {
     "title": "PinStick",
     "url": "/PinStick/",
-    "subtitle": "Simple Pinnable Disappearing notepad application for quick notes"
+    "subtitle": "Simple Pinnable Disappearing notepad application for quick notes",
+    "icon": "/assets/JotIconDefault-1024x1024@1x.png"
   },
   {
     "title": "PasCurtain",
     "url": "/PasCurtain/",
-    "subtitle": "A simple password breach checker using k-anonymity encryption"
+    "subtitle": "A simple password breach checker using k-anonymity encryption",
+    "icon": "/assets/pascurtain_rastericon.png"
   },
   {
     "title": "JetVeil",
     "url": "/JetVeil/",
-    "subtitle": "Simple reverse-proxy browser application for secure and anonymous browsing"
+    "subtitle": "Simple reverse-proxy browser application for secure and anonymous browsing",
+    "icon": "/assets/jetveiliconDefault-1024x1024@1x.png"
   }
 ]
