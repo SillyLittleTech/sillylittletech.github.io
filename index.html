@@ -178,6 +178,22 @@
         text-align: left;
       }
 
+      .link-main {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+        flex: 1;
+      }
+
+      .link-icon {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        object-fit: cover;
+        flex-shrink: 0;
+      }
+
       .link-subtitle {
         font-size: 12px;
         opacity: 0.8;
@@ -363,6 +379,15 @@
         function renderLinks(containerSelector, jsonPath) {
           const container = document.querySelector(containerSelector);
           if (!container) return;
+
+          function getSafeIconPath(iconPath) {
+            if (typeof iconPath !== 'string') return '';
+            const normalized = iconPath.trim();
+            if (!normalized.startsWith('/assets/')) return '';
+            if (normalized.includes('..')) return '';
+            return normalized;
+          }
+
           fetch(jsonPath)
             .then(function (res) {
               if (!res.ok) throw new Error('Failed to load ' + jsonPath);
@@ -376,10 +401,26 @@
                 anchor.href = link.url || '#';
                 if (link.target) anchor.target = link.target;
 
+                const main = document.createElement('span');
+                main.className = 'link-main';
+
+                const iconPath = getSafeIconPath(link.icon);
+                if (iconPath) {
+                  const icon = document.createElement('img');
+                  icon.className = 'link-icon';
+                  icon.src = iconPath;
+                  icon.alt = '';
+                  icon.setAttribute('aria-hidden', 'true');
+                  icon.loading = 'lazy';
+                  icon.decoding = 'async';
+                  main.appendChild(icon);
+                }
+
                 const title = document.createElement('span');
                 title.className = 'link-title';
                 title.textContent = link.title || link.url || 'Link';
-                anchor.appendChild(title);
+                main.appendChild(title);
+                anchor.appendChild(main);
 
                 if (link.subtitle) {
                   const subtitle = document.createElement('span');
