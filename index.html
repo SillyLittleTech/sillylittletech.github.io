@@ -379,6 +379,15 @@
         function renderLinks(containerSelector, jsonPath) {
           const container = document.querySelector(containerSelector);
           if (!container) return;
+
+          function getSafeIconPath(iconPath) {
+            if (typeof iconPath !== 'string') return '';
+            const normalized = iconPath.trim();
+            if (!normalized.startsWith('/assets/')) return '';
+            if (normalized.includes('..')) return '';
+            return normalized;
+          }
+
           fetch(jsonPath)
             .then(function (res) {
               if (!res.ok) throw new Error('Failed to load ' + jsonPath);
@@ -395,10 +404,11 @@
                 const main = document.createElement('span');
                 main.className = 'link-main';
 
-                if (link.icon) {
+                const iconPath = getSafeIconPath(link.icon);
+                if (iconPath) {
                   const icon = document.createElement('img');
                   icon.className = 'link-icon';
-                  icon.src = link.icon;
+                  icon.src = iconPath;
                   icon.alt = '';
                   icon.setAttribute('aria-hidden', 'true');
                   icon.loading = 'lazy';
