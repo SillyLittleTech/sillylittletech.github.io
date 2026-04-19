@@ -399,7 +399,8 @@
                   const icon = document.createElement('img');
                   icon.className = 'link-icon';
                   icon.src = link.icon;
-                  icon.alt = (link.title || 'Project') + ' icon';
+                  icon.alt = '';
+                  icon.setAttribute('aria-hidden', 'true');
                   icon.loading = 'lazy';
                   icon.decoding = 'async';
                   main.appendChild(icon);
