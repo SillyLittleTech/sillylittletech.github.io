@@ -1,44 +1,52 @@
 [
   {
     "title": "Portf",
-    "url": "/Portf/",
     "subtitle": "Modular portfolio template",
-    "icon": "/assets/portfDefault-1024x1024@1x.png"
-  },
-  {
-    "title": "oldClassic",
-    "url": "/oldClassic/",
-    "subtitle": "Retro-style website template",
-    "icon": "/assets/oldclassicDefault-1024x1024@1x.png"
+    "url": "/Portf/",
+    "icon": "/assets/portfDefault-1024x1024@1x.png",
+    "featured": true
   },
   {
     "title": "CookieCut",
-    "url": "/CookieCut/",
     "subtitle": "Simple page generator & printer",
-    "icon": "/assets/cookiecutDefault-1024x1024@1x.png"
+    "url": "/CookieCut/",
+    "icon": "/assets/cookiecutDefault-1024x1024@1x.png",
+    "featured": true
   },
   {
     "title": "Flean",
-    "url": "/Flean/",
     "subtitle": "Fandom URL converter",
-    "icon": "/assets/FleanIconDefault-1024x1024@1x.png"
+    "url": "/Flean/",
+    "icon": "/assets/FleanIconDefault-1024x1024@1x.png",
+    "featured": true
   },
   {
     "title": "PinStick",
-    "url": "/PinStick/",
     "subtitle": "Simple Pinnable Disappearing notepad application for quick notes",
-    "icon": "/assets/JotIconDefault-1024x1024@1x.png"
+    "url": "/PinStick/",
+    "icon": "/assets/JotIconDefault-1024x1024@1x.png",
+    "featured": true
   },
   {
     "title": "PasCurtain",
-    "url": "/PasCurtain/",
     "subtitle": "A simple password breach checker using k-anonymity encryption",
-    "icon": "/assets/pascurtain_rastericon.png"
+    "url": "/PasCurtain/",
+    "icon": "/assets/pascurtain_rastericon.png",
+    "featured": true
+  },
+  {
+    "title": "oldClassic",
+    "subtitle": "Retro-style website template",
+    "url": "/oldClassic/",
+    "icon": "/assets/oldclassicDefault-1024x1024@1x.png",
+    "featured": false
   },
   {
     "title": "JetVeil",
-    "url": "/JetVeil/",
-    "subtitle": "Reverse-proxy browser application for secure and anonymous browsing",
-    "icon": "/assets/jetveiliconDefault-1024x1024@1x.png"
+    "subtitle": "Network reverse-diagnostic utility for packet analysis research.",
+    "easy": false,
+    "easyText": "A local-machine utility for monitoring hardware-level network traffic and diagnosing data transmission protocols. Open-source and designed for network research students.",
+    "icon": "/assets/jetveiliconDefault-1024x1024@1x.png",
+    "featured": false
   }
 ]
