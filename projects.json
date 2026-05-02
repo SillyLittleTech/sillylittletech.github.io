@@ -48,5 +48,21 @@
     "easyText": "A local-machine utility for monitoring hardware-level network traffic and diagnosing data transmission protocols. Open-source and designed for network research students.",
     "icon": "/assets/jetveiliconDefault-1024x1024@1x.png",
     "featured": false
+  },
+  {
+    "title": "UpMagic",
+    "subtitle": "Simple Modular StatusPage powered by Cloudflare Edge Workers.",
+    "easy": false,
+    "easyText": "A simple Modular StatusPage template powered by Cloudflare Edge Workers and Workers KV, available on our GitHub repo as a template.",
+    "icon": "/assets/UpMagicDefault-1024x1024@1x.png",
+    "featured": false
+  },
+  {
+    "title": "Plummer",
+    "subtitle": "Dynamic Shortlink generator using Workers KV.",
+    "easy": false,
+    "easyText": "A dynamic shortlink maker and admin dashboard using workers KV, supporting things like password protected pages and expiring links. Available on our GitHub as a template.",
+    "icon": "/assets/linkplummerIconDefault-1024x1024@1x.png",
+    "featured" false
   }
 ]
