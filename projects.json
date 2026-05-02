@@ -63,6 +63,6 @@
     "easy": false,
     "easyText": "A dynamic shortlink maker and admin dashboard using workers KV, supporting things like password protected pages and expiring links. Available on our GitHub as a template.",
     "icon": "/assets/linkplummerIconDefault-1024x1024@1x.png",
-    "featured" false
+    "featured": false
   }
 ]
