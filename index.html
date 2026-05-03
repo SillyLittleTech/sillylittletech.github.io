@@ -553,6 +553,36 @@
         return normalized;
       }
 
+      const CF_RESIZE_PREFIX =
+        'https://sillylittle.tech/cdn-cgi/image/format=auto,quality=75,width=512/';
+      const PROJECTS_ORIGIN = 'https://projects.sillylittle.tech';
+
+      function isAllowedExternalIconUrl(url) {
+        try {
+          const u = new URL(url);
+          if (u.protocol !== 'https:') return false;
+          const host = u.hostname.toLowerCase();
+          return (
+            host === 'projects.sillylittle.tech' ||
+            host === 'raw.githubusercontent.com'
+          );
+        } catch (e) {
+          return false;
+        }
+      }
+
+      function toOptimizedIconSrc(iconPath) {
+        const repoPath = getSafeIconPath(iconPath);
+        if (repoPath) {
+          return CF_RESIZE_PREFIX + PROJECTS_ORIGIN + repoPath;
+        }
+        if (typeof iconPath !== 'string') return '';
+        const trimmed = iconPath.trim();
+        if (!trimmed.startsWith('https://')) return '';
+        if (!isAllowedExternalIconUrl(trimmed)) return '';
+        return CF_RESIZE_PREFIX + trimmed;
+      }
+
       // Modal Logic
       const modal = document.getElementById('infoModal');
       const modalTitle = document.getElementById('modalTitle');
@@ -599,11 +629,11 @@
         const main = document.createElement('span');
         main.className = 'link-main';
 
-        const iconPath = getSafeIconPath(link.icon);
-        if (iconPath) {
+        const iconSrc = toOptimizedIconSrc(link.icon);
+        if (iconSrc) {
           const icon = document.createElement('img');
           icon.className = 'link-icon';
-          icon.src = iconPath;
+          icon.src = iconSrc;
           icon.alt = '';
           icon.setAttribute('aria-hidden', 'true');
           icon.loading = 'lazy';
