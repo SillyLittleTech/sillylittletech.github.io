@@ -578,7 +578,6 @@
         }
         if (typeof iconPath !== 'string') return '';
         const trimmed = iconPath.trim();
-        if (!trimmed.startsWith('https://')) return '';
         if (!isAllowedExternalIconUrl(trimmed)) return '';
         return CF_RESIZE_PREFIX + trimmed;
       }
