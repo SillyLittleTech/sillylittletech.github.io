@@ -27,7 +27,6 @@
       --border-color: #e0e0e0;
       --shadow: rgba(0, 0, 0, 0.1);
       --accent-color: #667eea;
-      --subtitle-max-width: 50%;
     }
 
     [data-theme="dark"] {
@@ -171,6 +170,7 @@
       text-align: left;
       font-family: inherit;
       cursor: pointer;
+      overflow: hidden;
     }
 
     .link-button:hover {
@@ -209,7 +209,8 @@
       opacity: 0.8;
       color: var(--text-color);
       margin-left: 12px;
-      max-width: var(--subtitle-max-width);
+      min-width: 0;
+      flex: 0 1 auto;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -460,33 +461,25 @@
         right: 15px;
       }
 
-      .link-button {
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: center;
-        gap: 6px;
-      }
-
-      .link-main {
-        width: 100%;
-      }
-
       .link-subtitle {
-        margin-left: 0;
-        max-width: 100%;
+        margin-left: 12px;
         position: relative;
-        -webkit-mask-image: linear-gradient(
+        text-overflow: clip;
+      }
+
+      .link-subtitle::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 48px;
+        background: linear-gradient(
           to right,
-          rgba(0, 0, 0, 1) 0%,
-          rgba(0, 0, 0, 1) calc(100% - 28px),
-          rgba(0, 0, 0, 0) 100%
+          rgba(255, 255, 255, 0),
+          var(--card-bg)
         );
-        mask-image: linear-gradient(
-          to right,
-          rgba(0, 0, 0, 1) 0%,
-          rgba(0, 0, 0, 1) calc(100% - 28px),
-          rgba(0, 0, 0, 0) 100%
-        );
+        pointer-events: none;
       }
     }
   </style>
