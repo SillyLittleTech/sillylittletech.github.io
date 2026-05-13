@@ -27,6 +27,7 @@
       --border-color: #e0e0e0;
       --shadow: rgba(0, 0, 0, 0.1);
       --accent-color: #667eea;
+      --subtitle-max-width: 50%;
     }
 
     [data-theme="dark"] {
@@ -208,7 +209,7 @@
       opacity: 0.8;
       color: var(--text-color);
       margin-left: 12px;
-      max-width: 50%;
+      max-width: var(--subtitle-max-width);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
