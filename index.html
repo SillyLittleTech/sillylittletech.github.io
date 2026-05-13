@@ -170,6 +170,7 @@
       text-align: left;
       font-family: inherit;
       cursor: pointer;
+      overflow: hidden;
     }
 
     .link-button:hover {
@@ -181,6 +182,10 @@
     .link-title {
       flex: 1;
       text-align: left;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .link-main {
@@ -204,6 +209,17 @@
       opacity: 0.8;
       color: var(--text-color);
       margin-left: 12px;
+      min-width: 0;
+      flex: 0 1 auto;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip;
+    }
+
+    @media (min-width: 769px) {
+      .link-subtitle {
+        text-overflow: ellipsis;
+      }
     }
 
     /* Non-featured items are hidden by default and revealed when expanded */
@@ -450,6 +466,26 @@
         top: 15px;
         right: 15px;
       }
+
+      .link-subtitle {
+        margin-left: 12px;
+        position: relative;
+      }
+
+      .link-subtitle::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 48px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          var(--card-bg)
+        );
+        pointer-events: none;
+      }
     }
   </style>
 </head>
@@ -642,7 +678,9 @@
 
         const title = document.createElement('span');
         title.className = 'link-title';
-        title.textContent = link.title || link.url || 'Link';
+        const titleText = link.title || link.url || 'Link';
+        title.textContent = titleText;
+        title.title = titleText;
         main.appendChild(title);
         element.appendChild(main);
 
@@ -650,6 +688,7 @@
           const subtitle = document.createElement('span');
           subtitle.className = 'link-subtitle';
           subtitle.textContent = link.subtitle;
+          subtitle.title = link.subtitle;
           element.appendChild(subtitle);
         }
 
