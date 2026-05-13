@@ -475,7 +475,6 @@
         margin-left: 0;
         max-width: 100%;
         position: relative;
-        text-overflow: clip;
         -webkit-mask-image: linear-gradient(
           to right,
           rgba(0, 0, 0, 1) 0%,
@@ -681,7 +680,9 @@
 
         const title = document.createElement('span');
         title.className = 'link-title';
-        title.textContent = link.title || link.url || 'Link';
+        const titleText = link.title || link.url || 'Link';
+        title.textContent = titleText;
+        title.title = titleText;
         main.appendChild(title);
         element.appendChild(main);
 
@@ -689,6 +690,7 @@
           const subtitle = document.createElement('span');
           subtitle.className = 'link-subtitle';
           subtitle.textContent = link.subtitle;
+          subtitle.title = link.subtitle;
           element.appendChild(subtitle);
         }
 
