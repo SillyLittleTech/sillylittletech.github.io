@@ -213,7 +213,13 @@
       flex: 0 1 auto;
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;
+      text-overflow: clip;
+    }
+
+    @media (min-width: 769px) {
+      .link-subtitle {
+        text-overflow: ellipsis;
+      }
     }
 
     /* Non-featured items are hidden by default and revealed when expanded */
@@ -464,7 +470,6 @@
       .link-subtitle {
         margin-left: 12px;
         position: relative;
-        text-overflow: clip;
       }
 
       .link-subtitle::after {
