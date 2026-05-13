@@ -181,6 +181,10 @@
     .link-title {
       flex: 1;
       text-align: left;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .link-main {
@@ -204,6 +208,10 @@
       opacity: 0.8;
       color: var(--text-color);
       margin-left: 12px;
+      max-width: 50%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     /* Non-featured items are hidden by default and revealed when expanded */
@@ -449,6 +457,36 @@
         height: 45px;
         top: 15px;
         right: 15px;
+      }
+
+      .link-button {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        gap: 6px;
+      }
+
+      .link-main {
+        width: 100%;
+      }
+
+      .link-subtitle {
+        margin-left: 0;
+        max-width: 100%;
+        position: relative;
+        text-overflow: clip;
+        -webkit-mask-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 1) calc(100% - 28px),
+          rgba(0, 0, 0, 0) 100%
+        );
+        mask-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 1) calc(100% - 28px),
+          rgba(0, 0, 0, 0) 100%
+        );
       }
     }
   </style>
