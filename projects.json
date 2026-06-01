@@ -14,11 +14,18 @@
     "featured": true
   },
   {
+    "title": "Mentell",
+    "subtitle": "Mental health tracker superagent",
+    "url": "/Mentell/",
+    "icon": "/mentell/asset/mentell-icon.png",
+    "featured": true
+  },
+  {
     "title": "Flean",
     "subtitle": "Fandom URL converter",
     "url": "/Flean/",
     "icon": "/assets/FleanIconDefault-1024x1024@1x.png",
-    "featured": true
+    "featured": false
   },
   {
     "title": "PinStick",
